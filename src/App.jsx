@@ -4,13 +4,16 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { BrowserRouter } from 'react-router'
 import AppRoutes from './routes/AppRoutes'
+import MainLayout from './layouts/MainLayout'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <BrowserRouter>
-      <AppRoutes />
+      <MainLayout>
+        <AppRoutes />
+      </MainLayout>
     </BrowserRouter>
   )
 }
