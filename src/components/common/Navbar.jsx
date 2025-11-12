@@ -1,0 +1,29 @@
+import { useState } from "react";
+import { useNavigate } from "react-router";
+import useDebounce from "../../hooks/useDebounce";
+
+
+export default function Navbar() {
+    const [query, setQuery] = useState("");
+    const navigate = useNavigate();
+    const debounceQuery = useDebounce(query, 500);
+
+    // Navigate automatically when debounced query changes
+    if (debouncedQuery) {
+        navigate(`/search?query=${debouncedQuery}`);
+    }
+
+    return (
+        <nav className="bg-gray-900 text-white px-6 py-3 flex items-center justify-between shadow-md">
+            <Link to="/" className="text-2xl font-bold text-yellow-400 tracking-wide">
+            CineScope
+            </Link>
+
+            <div className="relative w-64">
+                <input type="text" placeholder="Search movies..." value={query} onChange={(e)=>setQuery(e.target.value)} 
+                className="w-full px-4 py-2 bg-gray-800 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400"/>
+                <button className="absolute right-3 top-2.5 text-gray-400" />
+            </div>
+        </nav>
+    )
+}
