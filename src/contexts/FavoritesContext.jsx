@@ -16,6 +16,12 @@ export const FavoritesProvider = ({children}) => {
         }
     };
 
+    const removeFavorite = (id) => {
+        const updated = favorites.filter((movie) => id !== movie.id);
+        setFavorites(updated);
+        localStorage.setItem("favorites", JSON.stringify(updated));
+    }
+
     return (
         <FavoritesContext.Provider >
             {children}
