@@ -22,8 +22,12 @@ export const FavoritesProvider = ({children}) => {
         localStorage.setItem("favorites", JSON.stringify(updated));
     }
 
+    const isFavorite = (id) => {
+        return favorites.some((movie) => movie.id === id);
+    };
+
     return (
-        <FavoritesContext.Provider >
+        <FavoritesContext.Provider value={(favorites, addFavorite, removeFavorite, isFavorite)}>
             {children}
         </FavoritesContext.Provider>
     )
