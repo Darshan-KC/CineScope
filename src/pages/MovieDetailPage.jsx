@@ -1,7 +1,8 @@
 import { useParams } from "react-router"
 import Loader from "../components/common/Loader";
 import ErrorMessage from "../components/common/ErrorMessage";
-import { getPosterUrl } from "../utils/getPosterUrl";
+// import { getPosterUrl } from "../utils/getPosterUrl";
+import { getPosterUrl } from "../utils";
 
 export default function () {
     const { id } = useParams();

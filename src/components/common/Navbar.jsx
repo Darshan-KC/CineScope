@@ -1,9 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import useDebounce from "../../hooks/useDebounce";
-import { useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { Sun, Moon } from "lucide-react"; // if using icons
+import { Link } from "react-router";
 
 
 export default function Navbar() {
@@ -13,9 +13,14 @@ export default function Navbar() {
     const debounceQuery = useDebounce(query, 500);
 
     // Navigate automatically when debounced query changes
-    if (debouncedQuery) {
-        navigate(`/search?query=${debouncedQuery}`);
-    }
+    // if (debouncedQuery) {
+    //     navigate(`/search?query=${debouncedQuery}`);
+    // }
+    // useEffect(() => {
+  //   if (debouncedQuery) {
+  //     navigate(`/search?query=${debouncedQuery}`);
+  //   }
+  // }, [debouncedQuery, navigate]);
 
     return (
         <nav className="bg-gray-900 text-white px-6 py-3 flex items-center justify-between shadow-md">

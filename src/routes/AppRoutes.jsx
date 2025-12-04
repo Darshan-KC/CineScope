@@ -1,11 +1,12 @@
 import { Route } from "react-router";
 import { Routes } from "react-router";
-import Homepage from "../pages/HomePage";
 import MovieDetailPage from "../pages/MovieDetailPage";
 import SearchPage from "../pages/SearchPage";
 import NotFoundPage from "../pages/NotFoundPage";
 import MainLayout from "../layouts/MainLayout";
 import DetailLayout from "../layouts/DetailLayout";
+import HomePage from "../pages/HomePage";
+import FavoritesPage from "../pages/FavoritesPage";
 
 export default function AppRoutes() {
     return (
