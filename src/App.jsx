@@ -11,9 +11,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <MainLayout>
+      {/* <MainLayout> */}
         <AppRoutes />
-      </MainLayout>
+      {/* </MainLayout> */}
     </BrowserRouter>
   )
 }
