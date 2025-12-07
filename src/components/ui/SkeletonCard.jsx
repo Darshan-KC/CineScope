@@ -1,11 +1,11 @@
-export default function SkeletonCard() {
-    return (
-        <div className="bg-gray-800 animate-pulse rounded-2xl overflow-hidden">
-            <div className="h-80 bg-gray-700"></div>
-            <div className="p-4 space-y-2">
-                <div className="h-4 bg-gray-700 rounded w-3/4"></div>
-                <div className="h-3 bg-gray-700 rounded w-1/2"></div>
-            </div>
-        </div>
-    );
-}
+const SkeletonCard = () => {
+  return (
+    <div className="animate-pulse w-full">
+      <div className="bg-gray-300 dark:bg-gray-700 h-60 w-full rounded-xl"></div>
+      <div className="h-4 bg-gray-300 dark:bg-gray-700 mt-3 rounded"></div>
+      <div className="h-4 bg-gray-300 dark:bg-gray-700 mt-2 w-2/3 rounded"></div>
+    </div>
+  );
+};
+
+export default SkeletonCard;
