@@ -3,10 +3,11 @@ import Loader from "../components/common/Loader";
 import ErrorMessage from "../components/common/ErrorMessage";
 // import { getPosterUrl } from "../utils/getPosterUrl";
 import { getPosterUrl } from "../utils";
+import useFetchMovies from "../hooks/useFetchMovies";
 
 export default function () {
     const { id } = useParams();
-    const { data: movie, loading, error } = {};
+    const { data: movie, loading, error } = useFetchMovies();
 
     if (loading) return <Loader />;
     if (error) return <ErrorMessage message="Movie not found." />;
