@@ -83,3 +83,6 @@ npm run build
 ### ✨ Author
 **cineScope Project**  
 Built as a structured React learning project.
+
+### 📄 License
+This project is for educational purposes --- feel free to use and modify!
