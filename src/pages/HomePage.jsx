@@ -8,11 +8,13 @@ const HomePage = () => {
     // const movies = {};
     return (
         <>
-        <div className="p-6">
-            <h1 className="text-2xl font-bold text-black mb-4">Trending Movies</h1>
-            <MovieGrid movies={movies} loading={loading} error={error} />
-            {/* <MovieGrid movies={movies} /> */}
-        </div>
+            <div className="bg-gray-200 dark:bg-black">
+                <div className="p-6 sm:mx-1 md:mx-4 lg:mx-6">
+                    <h1 className="text-2xl font-bold text-black dark:text-white mb-4">Trending Movies</h1>
+                    <MovieGrid movies={movies} loading={loading} error={error} />
+                    {/* <MovieGrid movies={movies} /> */}
+                </div>
+            </div>
         </>
     )
 }
