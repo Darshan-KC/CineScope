@@ -17,10 +17,10 @@ export default function Navbar() {
     //     navigate(`/search?query=${debouncedQuery}`);
     // }
     // useEffect(() => {
-  //   if (debouncedQuery) {
-  //     navigate(`/search?query=${debouncedQuery}`);
-  //   }
-  // }, [debouncedQuery, navigate]);
+    //   if (debouncedQuery) {
+    //     navigate(`/search?query=${debouncedQuery}`);
+    //   }
+    // }, [debouncedQuery, navigate]);
 
     return (
         <nav className="bg-gray-900 text-white px-6 py-3 flex items-center justify-between shadow-md">
@@ -29,6 +29,9 @@ export default function Navbar() {
             </Link>
 
             <div className="relative w-64 flex">
+                <Link to="/" className="text-2xl mx-4 text-light tracking-wide">
+                    Home
+                </Link>
                 <input type="text" placeholder="Search movies..." value={query} onChange={(e) => setQuery(e.target.value)}
                     className="w-full px-4 py-2 bg-gray-800 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-yellow-400" />
                 <button className="absolute right-3 top-2.5 text-gray-400" />
