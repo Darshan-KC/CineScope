@@ -1,26 +1,26 @@
-import { useState, useContext } from "react";
-import { useNavigate } from "react-router";
+import { useState, useContext, useEffect } from "react";
+import { useNavigate, Link } from "react-router";
 import useDebounce from "../../hooks/useDebounce";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { Sun, Moon } from "lucide-react"; // if using icons
-import { Link } from "react-router";
 
 
 export default function Navbar() {
     const { theme, toggleTheme } = useContext(ThemeContext);
     const [query, setQuery] = useState("");
     const navigate = useNavigate();
-    const debounceQuery = useDebounce(query, 500);
+    const debouncedQuery = useDebounce(query, 500);
 
     // Navigate automatically when debounced query changes
     // if (debouncedQuery) {
     //     navigate(`/search?query=${debouncedQuery}`);
     // }
-    // useEffect(() => {
-    //   if (debouncedQuery) {
-    //     navigate(`/search?query=${debouncedQuery}`);
-    //   }
-    // }, [debouncedQuery, navigate]);
+
+    useEffect(() => {
+      if (debouncedQuery) {
+        navigate(`/search?query=${debouncedQuery}`);
+      }
+    }, [debouncedQuery, navigate]);
 
     return (
         <nav className="bg-gray-900 text-white px-6 py-3 flex items-center justify-between shadow-md">

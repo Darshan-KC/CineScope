@@ -1,18 +1,25 @@
 import { useSearchParams } from "react-router";
+import useFetchMovies from "../hooks/useFetchMovies";
+import MovieGrid from "../components/movies/MovieGrid";
+import Loader from "../components/common/Loader";
+import ErrorMessage from "../components/common/ErrorMessage";
 
 export default function SearchPage() {
-    const [params] = useSearchParams();
-    const query = params.get("query");
+  const [searchParams] = useSearchParams();
+  const query = searchParams.get("query");
 
-    const { data: data, loading, error } = {};
-    return (
-        <div className="p-6">
-            <h1 className="text-xl text-white font-semibold mb-4">
-                Search Results for: <span className="text-yellow-400">{query}</span>
-            </h1>
+  const { movies, loading, error } = useFetchMovies(query);
 
-            <MovieGrid movies={movies} loading={loading} error={error} />
+  if (loading) return <Loader />;
+  if (error) return <ErrorMessage message={error} />;
 
-        </div>
-    );
+  return (
+    <div className="p-6">
+      <h2 className="text-xl font-semibold mb-4">
+        Search Results for: <span className="text-yellow-400">{query}</span>
+      </h2>
+
+      <MovieGrid movies={movies} />
+    </div>
+  );
 }
