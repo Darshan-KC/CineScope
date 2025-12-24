@@ -6,4 +6,11 @@ const movieApi = axios.create({
     params: {api_key: API_KEY},
 });
 
+export const searchMovies = async (query) => {
+  const res = await movieApi.get("/search/movie", {
+    params: { query },
+  });
+  return res.data;
+};
+
 export default movieApi;
