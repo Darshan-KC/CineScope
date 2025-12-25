@@ -1,8 +1,17 @@
 import { Link } from "react-router";
 import { getPosterUrl, truncateText } from "../../utils";
 import RatingBadge from "./RatingBadge";
+import { Heart } from "lucide-react";
+import useFavorites from "../../hooks/useFavorites";
 
 export default function MovieCard({ movie }) {
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const favorite = isFavorite(movie.id);
+
+  const toggleFavorite = () => {
+    favorite ? removeFavorite(movie.id) : addFavorite(movie);
+  };
+
   return (
     <div className="relative bg-black dark:bg-gray-200 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fadeIn">
       <Link
@@ -18,7 +27,7 @@ export default function MovieCard({ movie }) {
           src={getPosterUrl(movie.poster_path)}
           alt={movie.title}
           className="rounded-2xl w-full h-80 object-cover"
-          loading="lazy"x
+          loading="lazy" x
         />
 
         <div className="p-4">
@@ -36,6 +45,15 @@ export default function MovieCard({ movie }) {
             </span>
             <RatingBadge rating={movie.vote_average} />
           </div>
+          <button
+            onClick={toggleFavorite}
+            className="absolute top-2 right-2"
+          >
+            <Heart
+              className={`w-6 h-6 ${favorite ? "text-red-500 fill-red-500" : "text-gray-400"
+                }`}
+            />
+          </button>
         </div>
       </Link>
     </div>
