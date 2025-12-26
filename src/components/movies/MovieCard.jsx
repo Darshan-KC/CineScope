@@ -45,17 +45,18 @@ export default function MovieCard({ movie }) {
             </span>
             <RatingBadge rating={movie.vote_average} />
           </div>
-          <button
-            onClick={toggleFavorite}
-            className="absolute top-2 right-2"
-          >
-            <Heart
-              className={`w-6 h-6 ${favorite ? "text-red-500 fill-red-500" : "text-gray-400"
-                }`}
-            />
-          </button>
+
         </div>
       </Link>
+      <button
+        onClick={toggleFavorite}
+        className="absolute top-2 right-2"
+      >
+        <Heart
+          className={`w-6 h-6 ${favorite ? "text-red-500 fill-red-500" : "text-gray-400"
+            }`}
+        />
+      </button>
     </div>
   );
 }
